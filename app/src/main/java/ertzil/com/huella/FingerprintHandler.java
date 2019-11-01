@@ -7,12 +7,17 @@ package ertzil.com.huella;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.widget.TextView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {
 
@@ -64,6 +69,23 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
         textView.setText(e);
         if(success){
             textView.setTextColor(ContextCompat.getColor(context,R.color.successText));
+            SharedPreferences prefs = context.getSharedPreferences("PrimerInicio", Context.MODE_PRIVATE);
+            boolean bandera = prefs.getBoolean("inicio", false);
+            if(!bandera){
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("House");
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("inicio",true);
+                String key = ref.push().getKey();
+                editor.putString("key",key);
+                ref.child(key).child("id").setValue(key);
+                ref.child(key).child("Sala").setValue(true);
+                ref.child(key).child("Dormitorio").setValue(true);
+                ref.child(key).child("Cosina").setValue(true);
+                ref.child(key).child("Bano").setValue(true);
+                ref.child(key).child("temperatura").setValue(0.0);
+                editor.commit();
+            }
+            context.startActivity(new Intent(context.getApplicationContext(),MainActivity.class));
         }
     }
 }
