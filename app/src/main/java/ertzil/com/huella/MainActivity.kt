@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                 cambioCosina(house!!.Cosina)
                 cambioDormitorio(house!!.Dormitorio)
                 cambioSala(house!!.Sala)
-                cambioTemp(house!!.temperatura)
+                cambioTemp((5.0 * house!!.temperatura * 100.0)/1024.0)
             }
 
         })

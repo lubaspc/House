@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "965137959705",
+    "firebase_url": "https://huella-95663.firebaseio.com",
+    "project_id": "huella-95663",
+    "storage_bucket": "huella-95663.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965137959705:android:a6b49b8e1860b872e75388",
+        "android_client_info": {
+          "package_name": "ertzil.com.huella"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965137959705-bc8p9v5k5e4ilg3pefd3npqs07j3vot2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ertzil.com.huella",
+            "certificate_hash": "a3ed5fd1348ea8494946570cf0ae5982e1b3af5e"
+          }
+        },
+        {
+          "client_id": "965137959705-0747v130j3urbs07fk93clqe1p7ekrg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe6yX2LBpPese8sTDslPrKt-FDaI50pMA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965137959705-0747v130j3urbs07fk93clqe1p7ekrg1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

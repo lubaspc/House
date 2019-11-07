@@ -72,17 +72,9 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
             SharedPreferences prefs = context.getSharedPreferences("PrimerInicio", Context.MODE_PRIVATE);
             boolean bandera = prefs.getBoolean("inicio", false);
             if(!bandera){
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("House");
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putBoolean("inicio",true);
-                String key = ref.push().getKey();
-                editor.putString("key",key);
-                ref.child(key).child("id").setValue(key);
-                ref.child(key).child("Sala").setValue(true);
-                ref.child(key).child("Dormitorio").setValue(true);
-                ref.child(key).child("Cosina").setValue(true);
-                ref.child(key).child("Bano").setValue(true);
-                ref.child(key).child("temperatura").setValue(0.0);
+                editor.putString("key","-LsSrCUyrUTtFNDkmnr0");
                 editor.commit();
             }
             context.startActivity(new Intent(context.getApplicationContext(),MainActivity.class));
